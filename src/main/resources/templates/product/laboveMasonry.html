@@ -33,7 +33,7 @@
         .box {
             color: aliceblue;
             text-align: center;
-            background-color: darkgreen;
+            /*background-color: darkgreen;*/
             /*width: 50px;*/
             /*height: 50px;*/
             border: 1px solid black;
@@ -41,14 +41,20 @@
 
         #masonry1 {
             grid-area: one;
+            background-color: darkgreen;
+
         }
 
         #masonry2 {
             grid-area: two;
+            background-color: blue;
+
         }
 
         #masonry3 {
             grid-area: three;
+            background-color: gray;
+
         }
 
         #masonry4 {
@@ -74,24 +80,15 @@
 
 <div id="top">
 
-<!--    <div th:each="product,iterStat : ${products}">-->
-                <div th:each="product,iterStat : ${products}" class="box" th:id="'masonry' + ${iterStat.count}">
-                        <span th:text="${product.getName()}"></span>
-                        <p><a th:href="'/product/' + ${product.getId()}">This is a link</a></p>
+        <div th:each="product,iterStat : ${products}" class="box" th:id="'masonry' + ${iterStat.count}">
+            <span th:text="${product.getName()}"></span>
+            <p><a th:href="'/product/' + ${product.getId()}">This is a link</a></p>
 
-                        <p th:text="${product.getDescription()}"></p>
-                </div>
-<!--    </div>-->
+            <p th:text="${product.getDescription()}"></p>
+        </div>
+
  </div>
 
-
-<!--top    <div class="box" id="one">1</div>-->
-<!--    <div class="box" id="two">2</div>-->
-<!--    <div class="box" id="three">3</div>-->
-<!--    <div class="box" id="four">4</div>-->
-<!--    <div class="box" id="five">5</div>-->
-<!--    <div class="box" id="six">6</div>-->
-<!--    <div class="box" id="seven">7</div>-->
 
 </body>
 </html>
