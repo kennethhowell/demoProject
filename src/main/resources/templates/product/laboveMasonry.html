@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>masonry</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0 auto;
+            background-color: khaki;
+        }
+
+        #top {
+            padding: 2%;
+            width: 100vw;
+            height: 100vh;
+            display: grid;
+            grid-template-areas:
+                    "one one two two three three"
+                    "one one two two three three"
+                    "one one two two four four"
+                    "five five six six four four"
+                    "five five six six four four"
+                    "five five . . seven seven";
+            grid-gap: 3em;
+
+        }
+
+        .box {
+            color: aliceblue;
+            text-align: center;
+            background-color: darkgreen;
+            /*width: 50px;*/
+            /*height: 50px;*/
+            border: 1px solid black;
+        }
+
+        #masonry1 {
+            grid-area: one;
+        }
+
+        #masonry2 {
+            grid-area: two;
+        }
+
+        #masonry3 {
+            grid-area: three;
+        }
+
+        #masonry4 {
+            grid-area: four;
+        }
+
+        #masonry5 {
+            grid-area: five;
+        }
+
+        #masonry6 {
+            grid-area: six;
+        }
+
+        #masonry7 {
+            grid-area: seven;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div id="top">
+
+<!--    <div th:each="product,iterStat : ${products}">-->
+                <div th:each="product,iterStat : ${products}" class="box" th:id="'masonry' + ${iterStat.count}">
+                        <span th:text="${product.getName()}"></span>
+                        <p><a th:href="'/product/' + ${product.getId()}">This is a link</a></p>
+
+                        <p th:text="${product.getDescription()}"></p>
+                </div>
+<!--    </div>-->
+ </div>
+
+
+<!--top    <div class="box" id="one">1</div>-->
+<!--    <div class="box" id="two">2</div>-->
+<!--    <div class="box" id="three">3</div>-->
+<!--    <div class="box" id="four">4</div>-->
+<!--    <div class="box" id="five">5</div>-->
+<!--    <div class="box" id="six">6</div>-->
+<!--    <div class="box" id="seven">7</div>-->
+
+</body>
+</html>

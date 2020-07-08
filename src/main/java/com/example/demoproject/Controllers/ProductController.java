@@ -89,4 +89,11 @@ public class ProductController {
         return "redirect:/products";
     }
 
+
+    @GetMapping ("/masonry")
+    public String masonryView(Model model){
+        List<Product> currentProducts = productDao.findAll();
+        model.addAttribute("products", currentProducts);
+        return "product/laboveMasonry";
+    }
 }
