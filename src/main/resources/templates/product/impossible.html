@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>cant be that easy</title>
+</head>
+<body>
+
+<h1><span style="color: brown">kenneth</span>, you fool it cannot be that easy</b>.</h1>
+
+<script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
+<script th:inline="javascript">
+    var apiKey = [[${apiKey}]];
+    // alert("Your api key is " + apiKey);
+
+    const client = filestack.init(apiKey);
+    client.picker().open();
+</script>
+</body>
+</html>

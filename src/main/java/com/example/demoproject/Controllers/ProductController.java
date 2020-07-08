@@ -91,9 +91,14 @@ public class ProductController {
 
 
     @GetMapping ("/masonry")
-    public String masonryView(Model model){
+    public String masonryView(Model model) {
         List<Product> currentProducts = productDao.findAll();
         model.addAttribute("products", currentProducts);
-        return "product/laboveMasonry";
+        return "product/laboveMasonry";}
+
+        @GetMapping("/impossible")
+        public String cantbeThisEasy (Model model){
+            model.addAttribute("apiKey", apiKey);
+            return "product/impossible";
+        }
     }
-}
